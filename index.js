@@ -1,7 +1,7 @@
-const noBrokenGrapes = require('./rules/no-broken-grapes')
+const noInternalImport = require('./rules/no-internal-import')
 
 module.exports = {
     rules: {
-        'no-broken-grapes': noBrokenGrapes
+        'no-internal-import': noInternalImport
     }
 };

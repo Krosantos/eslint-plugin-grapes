@@ -1,4 +1,4 @@
-const BAD_IMPORT_REGEX = /\.\.\/.*\//g
+const BAD_IMPORT_REGEX = /(\.{1,2}\/)\w+\//g
 
 const create = function (context) {
     return {
@@ -16,7 +16,7 @@ const create = function (context) {
 const meta = {
     type: 'suggestion',
     docs: {
-        description:'You should not access another "unit"\'s internals.',
+        description:'You should not access another "unit"\'s internal files or functions.',
         category: 'Best Practices',
         recommended: true,
     }
