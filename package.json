@@ -1,13 +1,20 @@
 {
   "name": "eslint-plugin-grapes",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A one-rule ESLint plugin to corral your file structure.",
   "main": "index.js",
   "repository": "git@github.com:Krosantos/eslint-plugin-grapes.git",
   "author": "Tymko Tecca <tymko.tecca@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "opinionated",
+    "import",
+    "structure"
+  ],
   "dependencies": {},
   "peerDependencies": {
-    "eslint": "^6"
+    "eslint": "2.x - 6.x"
   }
 }
