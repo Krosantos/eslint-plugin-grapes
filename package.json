@@ -6,5 +6,8 @@
   "repository": "git@github.com:Krosantos/eslint-plugin-grapes.git",
   "author": "Tymko Tecca <tymko.tecca@gmail.com>",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {},
+  "peerDependencies": {
+    "eslint": "^6"
+  }
 }

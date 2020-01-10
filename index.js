@@ -1,7 +1,7 @@
 const noBrokenGrapes = require('./rules/no-broken-grapes')
 
-export const rules = {
-    'no-broken-grapes': {
-        create: noBrokenGrapes
+module.exports = {
+    rules: {
+        'no-broken-grapes': noBrokenGrapes
     }
 };
