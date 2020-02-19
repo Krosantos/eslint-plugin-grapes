@@ -1,22 +1,28 @@
 const fs = require('fs');
 const path = require('path');
+const IMPORT_PREFIX = /(\.\.\/)+|(\.\/)+/
 const BAD_IMPORT_REGEX = /(\.{1,2}\/)\w+\//g
 const INDEX_FILE_REGEX = /^index\..*(js|ts)$/g
 
 const importIsModule = (importPath, contextPath) => {
-    const split = importPath.split('/');
-    while (split.length > 2) {
+    const prefix = importPath.match(IMPORT_PREFIX)[0];
+    const pathSuffix = importPath.replace(prefix, '');
+    const split = pathSuffix.split('/');
+    while (split.length > 1) {
         split.pop();
         const me = path.parse(contextPath);
-        const it = split.join(path.sep);
-
+        const it = prefix + split.join(path.sep);
         const resolvedPath = path.resolve(me.dir, it);
-        const files = fs.readdirSync(resolvedPath);
-        const hasIndexFile = files.some(file => {
-            const match = file.match(INDEX_FILE_REGEX)
-            return !!match
-        })
-        if (hasIndexFile) return true;
+        try {
+            const files = fs.readdirSync(resolvedPath);
+            const hasIndexFile = files.some(file => {
+                const match = file.match(INDEX_FILE_REGEX)
+                return !!match
+            })
+            if (hasIndexFile) return true;
+        } catch {
+            return true
+        }
     }
 }
 
