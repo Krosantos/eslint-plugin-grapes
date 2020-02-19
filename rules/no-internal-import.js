@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const BAD_IMPORT_REGEX = /(\.{1,2}\/)\w+\//g
-const INDEX_FILE_REGEX = /^index\..*$/g
+const INDEX_FILE_REGEX = /^index\..*(js|ts)$/g
 
 const importIsModule = (importPath, contextPath) => {
     const split = importPath.split('/');
