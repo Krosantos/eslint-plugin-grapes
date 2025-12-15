@@ -32,7 +32,7 @@ const create = function (context) {
       if (propCount > maxProps) {
         context.report({
           node: node?.parent?.parent?.typeArguments?.params?.[0],
-          message: 'Oh, she thiccccc.',
+          message: `This component takes too many props. ${referencedName} has ${propCount} props, but the maximum is ${maxProps}`,
         });
       }
     },
